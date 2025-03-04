@@ -1,0 +1,171 @@
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  transition: opacity 0.5s ease;
+}
+
+.navigationTabs {
+  margin-left: 14%;
+  margin-top: 5%;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 2rem;
+  gap: 1rem;
+}
+
+.tabItem {
+  text-align: center;
+}
+
+.tabButton {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 1.925rem */
+  letter-spacing: 0.11rem;
+  &.activeTab {
+    border-bottom: 4px solid white;
+    border-radius: 2px;
+  }
+}
+
+.carouselContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.contentContainer {
+  max-width: 48rem;
+  margin-left: 15%;
+  margin-top: 10%;
+  width: 100%;
+  color: white;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 16rem; // 64px * 4 = 256px = 16rem
+}
+
+.titleContainer {
+  height: 5rem; // 80px = 5rem
+}
+
+.title {
+  color: #fff;
+  font-family: "Roboto", serif;
+  font-size: 2.625rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%; /* 3.675rem */
+  letter-spacing: 0.21rem;
+}
+
+.subtitleContainer {
+  height: 3rem; // 48px = 3rem
+}
+
+.subtitle {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 2rem */
+  letter-spacing: -0.0125rem;
+}
+
+.descriptionContainer {
+  height: 8rem; // 128px = 8rem
+  overflow: auto;
+}
+
+.description {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 2rem */
+  letter-spacing: -0.0125rem;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.indicator {
+  height: 1rem; // 16px = 1rem
+  width: 1rem; // 16px = 1rem
+  border-radius: 9999px;
+  background-color: rgba(156, 163, 175, 0.5); // gray with opacity
+  border: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 0;
+
+  &.activeIndicator {
+    width: 3rem; // 48px = 3rem
+    background-color: #fcd34d; // yellow-300
+  }
+}
+
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  font-size: 3rem; // 48px = 3rem
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #fcd34d; // yellow-300
+  }
+}
+
+.arrowLeft {
+  left: 1rem;
+}
+
+.arrowRight {
+  right: 1rem;
+}

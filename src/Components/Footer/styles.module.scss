@@ -1,0 +1,111 @@
+.footer {
+  background: #141517;
+  color: #fff;
+  padding: 3rem 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+.brand {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.brandMain {
+  color: #fffcce;
+  font-family: Montserrat;
+  font-size: 4.05488rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.17594rem;
+  margin: 0px;
+}
+
+.brandSub {
+  color: #2185d5;
+  font-family: Montserrat;
+  font-size: 2.63569rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.15813rem;
+  margin: 0px;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem 1.5rem;
+  }
+}
+
+.navColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: color 0.2s ease;
+
+  color: #f3f3f3;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 1.6rem */
+  letter-spacing: -0.01rem;
+  text-transform: uppercase;
+
+  &:hover {
+    color: #ccc;
+  }
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.socialLink {
+  color: #fff;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #ccc;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
