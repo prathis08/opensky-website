@@ -2,11 +2,25 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function MasonryImageList() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // width < 600px
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md')); // 600px <= width < 960px
+  
+  // Responsive columns: 1 column on mobile, 2 on tablets, 3 on desktop
+  const columns = isMobile ? 1 : isTablet ? 2 : 3;
+
   return (
-    <Box sx={{ width: "100%", height: "100%", overflowY: "scroll" }}>
-      <ImageList variant="masonry" cols={3} gap={8}>
+    <Box sx={{ 
+      width: "100%", 
+      height: "100%", 
+      overflowY: "scroll",
+      maxHeight: isMobile ? "800px" : "1000px" 
+    }}>
+      <ImageList variant="masonry" cols={columns} gap={isMobile ? 4 : 8}>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <img
@@ -14,6 +28,7 @@ export default function MasonryImageList() {
               src={`${item.img}?w=248&fit=crop&auto=format`}
               alt={item.title}
               loading="lazy"
+              style={{ borderRadius: '4px' }}
             />
           </ImageListItem>
         ))}

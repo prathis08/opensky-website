@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../Components/Navbar";
 import EventCarousel from "../../Components/Carousel";
-import styles from "./syles.module.scss";
+import styles from "./styles.module.scss";
 import landingImage from "../../websiteimages/landing-image.jpeg";
 import centerImage from "../../websiteimages/center-image.jpg";
 import Button from "@mui/material/Button";
@@ -11,6 +11,7 @@ import Stack from "@mui/material/Stack";
 import PackageCard from "../../Components/PackageCard";
 import Footer from "../../Components/Footer";
 import Contact from "../../Components/Contact";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [selectedButton, setSelectedButton] = useState("ALL");
@@ -19,11 +20,48 @@ const Home = () => {
     setSelectedButton(buttonName);
   };
 
+  // Package data for different offerings
+  const packages = [
+    {
+      title: "Elegant Wedding",
+      description: "Our signature wedding package with premium amenities for your perfect day.",
+      price: "₹2,50,000",
+      features: [
+        "Venue decoration with floral arrangements",
+        "Catering for up to 200 guests",
+        "Professional photography & videography",
+        "DJ and entertainment options"
+      ]
+    },
+    {
+      title: "Corporate Retreat",
+      description: "Perfect for team building and business meetings in a serene environment.",
+      price: "₹1,75,000",
+      features: [
+        "Conference room setup with AV equipment",
+        "Catering for up to 50 attendees",
+        "Outdoor team-building activities",
+        "Accommodation for executives"
+      ]
+    },
+    {
+      title: "Weekend Getaway",
+      description: "Escape the city for a relaxing weekend at our beautiful resort.",
+      price: "₹35,000",
+      features: [
+        "Luxury accommodation for 2 nights",
+        "All meals included",
+        "Access to all resort amenities",
+        "Complimentary spa session"
+      ]
+    }
+  ];
+
   return (
     <>
       <div className={styles.pageDivOne}>
         <Navbar />
-        <img src={landingImage} className={styles.LandingImage} />
+        <img src={landingImage} className={styles.LandingImage} alt="Open Sky Resort Landing" />
 
         <div className={styles.mainLandingDiv}>
           <span className={styles.landingText}>
@@ -33,24 +71,24 @@ const Home = () => {
             Welcome to Mangalam Opensky Resort, the best venue for your Grand
             Indian Wedding!
           </span>
-          <a className={styles.contactBtn}>
+          <Link to="/contact" className={styles.contactBtn}>
             <div className={styles.contactBtnText}>Contact Us!</div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className={styles.pageDivTwo}>
-        <img src={centerImage} className={styles.centerImage} />
+        <img src={centerImage} className={styles.centerImage} alt="Open Sky Resort" />
         <div className={styles.centerText}>
           <span className={styles.nameText}>OPENSKY</span>
           <span className={styles.subText}>RESORT</span>
         </div>
       </div>
       <div className={styles.pageDivThree}>
-        <EventCarousel></EventCarousel>
+        <EventCarousel />
       </div>
       <div className={styles.pageDivFour}>
         <span className={styles.sectionNameHeading}>GALLERY</span>
-        <div>
+        <div className={styles.galleryButtonGroup}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="88"
@@ -58,60 +96,28 @@ const Home = () => {
             viewBox="0 0 88 3"
             fill="none"
           >
-            <path d="M0 1.5H88" stroke="white" stroke-width="2" />
+            <path d="M0 1.5H88" stroke="white" strokeWidth="2" />
           </svg>
           <Button
-            style={{
-              color: "#fff",
-              fontFamily: "Montserrat",
-              fontSize: "1.25rem",
-              fontStyle: "normal",
-              lineHeight: "140%" /* 1.75rem */,
-              letterSpacing: "0.1rem",
-              fontWeight: selectedButton === "ALL" ? "bold" : "normal",
-            }}
+            className={selectedButton === "ALL" ? styles.galleryButtonActive : styles.galleryButton}
             onClick={() => handleButtonClick("ALL")}
           >
             ALL
           </Button>
           <Button
-            style={{
-              color: "#fff",
-              fontFamily: "Montserrat",
-              fontSize: "1.25rem",
-              fontStyle: "normal",
-              lineHeight: "140%" /* 1.75rem */,
-              letterSpacing: "0.1rem",
-              fontWeight: selectedButton === "STAY" ? "bold" : "normal",
-            }}
+            className={selectedButton === "STAY" ? styles.galleryButtonActive : styles.galleryButton}
             onClick={() => handleButtonClick("STAY")}
           >
             STAY
           </Button>
           <Button
-            style={{
-              color: "#fff",
-              fontFamily: "Montserrat",
-              fontSize: "1.25rem",
-              fontStyle: "normal",
-              lineHeight: "140%" /* 1.75rem */,
-              letterSpacing: "0.1rem",
-              fontWeight: selectedButton === "EXPERIENCE" ? "bold" : "normal",
-            }}
+            className={selectedButton === "EXPERIENCE" ? styles.galleryButtonActive : styles.galleryButton}
             onClick={() => handleButtonClick("EXPERIENCE")}
           >
             EXPERIENCE
           </Button>
           <Button
-            style={{
-              color: "#fff",
-              fontFamily: "Montserrat",
-              fontSize: "1.25rem",
-              fontStyle: "normal",
-              lineHeight: "140%" /* 1.75rem */,
-              letterSpacing: "0.1rem",
-              fontWeight: selectedButton === "TASTE" ? "bold" : "normal",
-            }}
+            className={selectedButton === "TASTE" ? styles.galleryButtonActive : styles.galleryButton}
             onClick={() => handleButtonClick("TASTE")}
           >
             TASTE
@@ -123,7 +129,7 @@ const Home = () => {
             viewBox="0 0 88 3"
             fill="none"
           >
-            <path d="M0 1.5H88" stroke="white" stroke-width="2" />
+            <path d="M0 1.5H88" stroke="white" strokeWidth="2" />
           </svg>
         </div>
         <div className={styles.galleryImages}>
@@ -137,13 +143,20 @@ const Home = () => {
           your event.
         </p>
         <Stack
-          direction="row"
+          direction={{ xs: 'column', md: 'row' }}
           divider={<Divider orientation="vertical" flexItem />}
           spacing={2}
+          className={styles.packageContainer}
         >
-          <PackageCard />
-          <PackageCard />
-          <PackageCard />
+          {packages.map((pkg, index) => (
+            <PackageCard 
+              key={index}
+              title={pkg.title}
+              description={pkg.description}
+              price={pkg.price}
+              features={pkg.features}
+            />
+          ))}
         </Stack>
       </div>
       <div className={styles.pageDivSix}>

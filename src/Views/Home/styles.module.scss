@@ -1,3 +1,7 @@
+// Responsive breakpoints
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1023px;
+
 .LandingImage {
   position: relative;
   background-size: cover;
@@ -17,6 +21,13 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
+  width: 90%;
+  padding: 0 1rem;
+  
+  @media (max-width: $mobile-breakpoint) {
+    width: 95%;
+    gap: 1rem;
+  }
 }
 
 .landingText {
@@ -28,6 +39,15 @@
   font-weight: 300;
   line-height: 130%;
   letter-spacing: 0.25rem;
+  
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 1.75rem;
+    letter-spacing: 0.125rem;
+  }
 }
 
 .landingSubText {
@@ -39,6 +59,10 @@
   font-weight: 500;
   line-height: 160%;
   letter-spacing: -0.01rem;
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 0.875rem;
+  }
 }
 
 .contactBtn {
@@ -49,6 +73,7 @@
   gap: 0.625rem;
   border-radius: 0.875rem;
   background: #f3f3f3;
+  text-decoration: none;
 }
 
 .contactBtnText {
@@ -59,6 +84,10 @@
   font-weight: 300;
   line-height: 160%;
   letter-spacing: 0.125rem;
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 1rem;
+  }
 }
 
 .pageDivTwo {
@@ -68,6 +97,10 @@
   height: 80%;
   overflow: hidden;
   aspect-ratio: 16 / 9;
+  
+  @media (max-width: $mobile-breakpoint) {
+    height: 60%; // Smaller height on mobile
+  }
 }
 
 .centerImage {
@@ -88,6 +121,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+  padding: 2rem 0;
 }
 
 .nameText {
@@ -99,6 +133,16 @@
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1.10881rem;
+  
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 3rem;
+    letter-spacing: 0.8rem;
+  }
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+  }
 }
 
 .subText {
@@ -110,6 +154,14 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.14913rem;
+  
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 1rem;
+  }
 }
 
 .pageDivFour {
@@ -118,7 +170,8 @@
   justify-content: center;
   align-items: center;
   gap: 1.6875rem;
-  padding: 3.125rem 0;
+  padding: 3.125rem 1rem;
+  width: 100%;
 }
 
 .sectionNameHeading {
@@ -128,8 +181,17 @@
   font-size: 2.625rem;
   font-style: normal;
   font-weight: 200;
-  line-height: 140%; /* 3.675rem */
+  line-height: 140%;
   letter-spacing: 0.21rem;
+  
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 2.25rem;
+  }
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 1.75rem;
+    letter-spacing: 0.15rem;
+  }
 }
 
 .galleryHeaderBtn {
@@ -138,12 +200,21 @@
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 140%; /* 1.75rem */
+  line-height: 140%;
   letter-spacing: 0.1rem;
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 1rem;
+  }
 }
 
 .galleryImages {
-  width: 80%;
+  width: 90%;
+  max-width: 1200px;
+  
+  @media (max-width: $mobile-breakpoint) {
+    width: 95%;
+  }
 }
 
 .pageDivFive {
@@ -152,7 +223,8 @@
   justify-content: center;
   align-items: center;
   gap: 1.6875rem;
-  padding: 3.125rem 0;
+  padding: 3.125rem 1rem;
+  width: 100%;
 }
 
 .packageDescription {
@@ -162,8 +234,14 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 160%; /* 1.6rem */
+  line-height: 160%;
   letter-spacing: -0.01rem;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 0.875rem;
+  }
 }
 
 .pageDivSix {
@@ -171,5 +249,65 @@
   flex-direction: column;
   justify-content: center;  
   align-items: center;
-  padding: 10%;
+  padding: 10% 1rem;
+  width: 100%;
+}
+
+/* Gallery button styles */
+.galleryButton {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 140%;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: 0.875rem;
+    letter-spacing: 0.05rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.galleryButtonActive {
+  composes: galleryButton;
+  font-weight: bold;
+}
+
+.galleryButtonGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  width: 90%;
+  
+  @media (max-width: $mobile-breakpoint) {
+    gap: 0.25rem;
+    svg {
+      display: none; // Hide decorative lines on mobile to save space
+    }
+  }
+}
+
+.pageDivOne {
+  position: relative;
+  height: 100vh;
+}
+
+.packageContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (max-width: $mobile-breakpoint) {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Responsive footer */
+.footer {
+  width: 100%;
 }

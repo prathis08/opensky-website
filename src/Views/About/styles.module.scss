@@ -1,0 +1,121 @@
+.aboutContainer {
+  padding-top: 100px;
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+}
+
+.aboutHeader {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.headerTitle {
+  color: #fff;
+  font-family: "IvyPresto Headline";
+  font-size: 2.625rem;
+  font-weight: 200;
+  line-height: 140%;
+  letter-spacing: 0.21rem;
+  margin-bottom: 1.5rem;
+}
+
+.headerSubtitle {
+  color: #cfcfcf;
+  font-family: Montserrat;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 160%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+}
+
+.textContent {
+  flex: 1;
+  
+  @media (min-width: 768px) {
+    padding-right: 2rem;
+  }
+}
+
+.sectionTitle {
+  color: #fff;
+  font-family: "IvyPresto Headline";
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.sectionText {
+  color: #cfcfcf;
+  font-family: Montserrat;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.imageContainer {
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 400px;
+  margin: 2rem 0;
+}
+
+.aboutImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featuresList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.featureTitle {
+  color: #fff;
+  font-family: Montserrat;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.featureDesc {
+  color: #cfcfcf;
+  font-family: Montserrat;
+  font-size: 0.875rem;
+}

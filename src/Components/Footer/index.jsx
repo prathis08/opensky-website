@@ -1,6 +1,7 @@
 // Footer.jsx
 import React from "react";
 import styles from "./styles.module.scss";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -17,26 +18,26 @@ const Footer = () => {
         {/* Navigation Links */}
         <div className={styles.nav}>
           <div className={styles.navColumn}>
-            <a href="/about" className={styles.link}>
+            <NavLink to="/about" className={styles.link}>
               ABOUT
-            </a>
-            <a href="/packages" className={styles.link}>
+            </NavLink>
+            <NavLink to="/packages" className={styles.link}>
               PACKAGES
-            </a>
-            <a href="/gallery" className={styles.link}>
+            </NavLink>
+            <NavLink to="/gallery" className={styles.link}>
               GALLERY
-            </a>
-            <a href="/testimonials" className={styles.link}>
+            </NavLink>
+            <NavLink to="/testimonials" className={styles.link}>
               TESTIMONIALS
-            </a>
-            <a href="/contact" className={styles.link}>
+            </NavLink>
+            <NavLink to="/contact" className={styles.link}>
               CONTACT US
-            </a>
+            </NavLink>
           </div>
 
           <div className={styles.navColumn}>
             <div className={styles.social}>
-              <a href="https://twitter.com" className={styles.socialLink}>
+              <a href="https://twitter.com" className={styles.socialLink} target="_blank" rel="noopener noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -51,7 +52,7 @@ const Footer = () => {
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.5 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                 </svg>
               </a>
-              <a href="https://instagram.com" className={styles.socialLink}>
+              <a href="https://instagram.com" className={styles.socialLink} target="_blank" rel="noopener noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -68,7 +69,7 @@ const Footer = () => {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
               </a>
-              <a href="https://youtube.com" className={styles.socialLink}>
+              <a href="https://youtube.com" className={styles.socialLink} target="_blank" rel="noopener noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -91,6 +92,20 @@ const Footer = () => {
             <a href="/privacy" className={styles.link}>
               PRIVACY POLICY
             </a>
+            <div className={styles.contactInfo}>
+              <p className={styles.contactText}>
+                <strong>Address:</strong> 123 Resort Road, Scenic Valley
+              </p>
+              <p className={styles.contactText}>
+                <strong>Phone:</strong> +91 98765 43210
+              </p>
+              <p className={styles.contactText}>
+                <strong>Email:</strong> info@openskyresort.com
+              </p>
+            </div>
+            <p className={styles.copyright}>
+              © {new Date().getFullYear()} OpenSky Resort. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

@@ -23,6 +23,13 @@ const ContactForm = () => {
     e.preventDefault();
     // Handle form submission logic here
     console.log("Form submitted:", formData);
+    // Reset form after submission
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
   };
 
   return (
@@ -74,15 +81,15 @@ const ContactForm = () => {
           </div>
 
           <div className={styles.inputGroup}>
-            <input
-              type="text"
+            <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className={styles.input}
+              className={`${styles.input} ${styles.textarea}`}
               placeholder="Your Message"
+              rows="4"
               required
-            />
+            ></textarea>
           </div>
 
           <div className={styles.submitContainer}>

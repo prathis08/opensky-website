@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-bottom: 2rem;
 
   @media (min-width: 768px) {
     margin-bottom: 0;
@@ -36,22 +37,22 @@
 .brandMain {
   color: #fffcce;
   font-family: Montserrat;
-  font-size: 4.05488rem;
+  font-size: 2.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: 1.17594rem;
+  letter-spacing: 0.75rem;
   margin: 0px;
 }
 
 .brandSub {
   color: #2185d5;
   font-family: Montserrat;
-  font-size: 2.63569rem;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 0.15813rem;
+  letter-spacing: 0.1rem;
   margin: 0px;
 }
 
@@ -59,10 +60,11 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  width: 100%;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    gap: 6rem 1.5rem;
+    gap: 2rem;
   }
 }
 
@@ -108,4 +110,27 @@
     width: 24px;
     height: 24px;
   }
+}
+
+.contactInfo {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.contactText {
+  color: #f3f3f3;
+  font-family: Montserrat;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  
+  strong {
+    color: #2185d5;
+  }
+}
+
+.copyright {
+  color: #a0a0a0;
+  font-family: Montserrat;
+  font-size: 0.8rem;
+  margin-top: 1.5rem;
 }

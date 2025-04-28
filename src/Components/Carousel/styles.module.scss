@@ -21,7 +21,34 @@
   height: 100%;
   object-fit: cover;
   filter: brightness(0.6);
-  transition: opacity 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+// Add specific animation classes with improved easing
+.slideFromRight {
+  animation: slideInRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.slideFromLeft {
+  animation: slideInLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+// Add slide transition for background images with improved easing
+.slideImageFromRight {
+  animation: slideImageRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.slideImageFromLeft {
+  animation: slideImageLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+// Previous image styling for smoother transitions
+.prevImage {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: fadeOut 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .navigationTabs {
@@ -168,4 +195,68 @@
 
 .arrowRight {
   right: 1rem;
+}
+
+// Adding animation keyframes with more realistic motion
+@keyframes slideInRight {
+  0% {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// More realistic slide animations for background images
+@keyframes slideImageRight {
+  0% {
+    transform: translateX(10%);
+    filter: brightness(0.4);
+  }
+  100% {
+    transform: translateX(0);
+    filter: brightness(0.6);
+  }
+}
+
+@keyframes slideImageLeft {
+  0% {
+    transform: translateX(-10%);
+    filter: brightness(0.4);
+  }
+  100% {
+    transform: translateX(0);
+    filter: brightness(0.6);
+  }
+}
+
+// Fade out animation for previous slide
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
 }
