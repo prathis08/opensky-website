@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./styles.module.scss";
-import landingImage from "../../websiteimages/landing-image.jpeg";
-import centerImage from "../../websiteimages/center-image.jpg";
+import landingImage from "../../assets/core/landing-image.jpeg";
+import centerImage from "../../assets/core/center-image.jpg";
 
 const WeddingCarousel = () => {
   // Sample data for wedding events with image URLs
@@ -55,10 +55,10 @@ const WeddingCarousel = () => {
   // Add key state to force re-rendering of animated elements
   const [animationKey, setAnimationKey] = useState(0);
   // Track direction of animation (left or right)
-  const [direction, setDirection] = useState('right');
+  const [direction, setDirection] = useState("right");
   // Track if animation is in progress to prevent multiple rapid clicks
   const [isAnimating, setIsAnimating] = useState(false);
-  
+
   // Reference to the previous slide for smoother transitions
   const [prevIndex, setPrevIndex] = useState(null);
 
@@ -68,56 +68,58 @@ const WeddingCarousel = () => {
       const timer = setTimeout(() => {
         setIsAnimating(false);
       }, 800); // Match this to the animation duration
-      
+
       return () => clearTimeout(timer);
     }
   }, [isAnimating]);
 
   const goToSlide = (index) => {
     if (isAnimating || index === activeIndex) return;
-    
+
     // Determine direction based on index change
-    setDirection(index > activeIndex ? 'right' : 'left');
+    setDirection(index > activeIndex ? "right" : "left");
     setPrevIndex(activeIndex);
     setActiveIndex(index);
     // Set animating state to prevent multiple rapid transitions
     setIsAnimating(true);
     // Increment animation key to force re-rendering
-    setAnimationKey(prevKey => prevKey + 1);
+    setAnimationKey((prevKey) => prevKey + 1);
   };
 
   const goToPrevious = () => {
     if (isAnimating) return;
-    
+
     const newIndex = activeIndex === 0 ? events.length - 1 : activeIndex - 1;
-    setDirection('left');
+    setDirection("left");
     setPrevIndex(activeIndex);
     setActiveIndex(newIndex);
     setIsAnimating(true);
     // Increment animation key to force re-rendering
-    setAnimationKey(prevKey => prevKey + 1);
+    setAnimationKey((prevKey) => prevKey + 1);
   };
 
   const goToNext = () => {
     if (isAnimating) return;
-    
+
     const newIndex = activeIndex === events.length - 1 ? 0 : activeIndex + 1;
-    setDirection('right');
+    setDirection("right");
     setPrevIndex(activeIndex);
     setActiveIndex(newIndex);
     setIsAnimating(true);
     // Increment animation key to force re-rendering
-    setAnimationKey(prevKey => prevKey + 1);
+    setAnimationKey((prevKey) => prevKey + 1);
   };
 
   // Choose the appropriate animation class based on direction
   const getAnimationClass = () => {
-    return direction === 'right' ? styles.slideFromRight : styles.slideFromLeft;
+    return direction === "right" ? styles.slideFromRight : styles.slideFromLeft;
   };
 
   // Get background image animation class based on direction
   const getImageAnimationClass = () => {
-    return direction === 'right' ? styles.slideImageFromRight : styles.slideImageFromLeft;
+    return direction === "right"
+      ? styles.slideImageFromRight
+      : styles.slideImageFromLeft;
   };
 
   return (
@@ -131,14 +133,14 @@ const WeddingCarousel = () => {
           alt={`${events[activeIndex].title} background`}
           className={`${styles.backgroundImage} ${getImageAnimationClass()}`}
         />
-        
+
         {/* Previous slide image (helps with more realistic transitions) */}
         {prevIndex !== null && isAnimating && (
           <img
             src={events[prevIndex].url}
             alt={`Previous slide background`}
             className={`${styles.backgroundImage} ${styles.prevImage}`}
-            style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }}
+            style={{ position: "absolute", top: 0, left: 0, zIndex: -1 }}
           />
         )}
       </div>
@@ -163,8 +165,8 @@ const WeddingCarousel = () => {
       {/* Carousel content */}
       <div className={styles.carouselContent}>
         {/* Left arrow */}
-        <button 
-          onClick={goToPrevious} 
+        <button
+          onClick={goToPrevious}
           className={styles.arrowLeft}
           disabled={isAnimating}
         >
@@ -185,8 +187,8 @@ const WeddingCarousel = () => {
           <div className={styles.contentWrapper}>
             {/* Title with fixed height */}
             <div className={styles.titleContainer}>
-              <h1 
-                key={`title-${animationKey}`} 
+              <h1
+                key={`title-${animationKey}`}
                 className={`${styles.title} ${getAnimationClass()}`}
               >
                 {events[activeIndex].title}
@@ -195,10 +197,10 @@ const WeddingCarousel = () => {
 
             {/* Subtitle with fixed height */}
             <div className={styles.subtitleContainer}>
-              <p 
-                key={`subtitle-${animationKey}`} 
+              <p
+                key={`subtitle-${animationKey}`}
                 className={`${styles.subtitle} ${getAnimationClass()}`}
-                style={{ animationDelay: '0.1s' }}
+                style={{ animationDelay: "0.1s" }}
               >
                 {events[activeIndex].subtitle}
               </p>
@@ -206,10 +208,10 @@ const WeddingCarousel = () => {
 
             {/* Description with fixed height */}
             <div className={styles.descriptionContainer}>
-              <p 
-                key={`desc-${animationKey}`} 
+              <p
+                key={`desc-${animationKey}`}
                 className={`${styles.description} ${getAnimationClass()}`}
-                style={{ animationDelay: '0.2s' }}
+                style={{ animationDelay: "0.2s" }}
               >
                 {events[activeIndex].description}
               </p>
@@ -232,8 +234,8 @@ const WeddingCarousel = () => {
         </div>
 
         {/* Right arrow */}
-        <button 
-          onClick={goToNext} 
+        <button
+          onClick={goToNext}
           className={styles.arrowRight}
           disabled={isAnimating}
         >

@@ -1,7 +1,7 @@
 // ContactForm.jsx
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
-import landingImage from "../../websiteimages/landing-image.jpeg";
+import landingImage from "../../assets/core/landing-image.jpeg";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
